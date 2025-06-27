@@ -7,35 +7,36 @@
     <link rel="stylesheet" href="./style/index.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>Author finder</h1>
-      <p class="text">
-        Find your favorite authors and their works.
-      </p>
-    </div>
+    <!-- Search Form -->
+    <form>
+      <input type="text" id="author" placeholder="Author name" required />
+      <input type="text" id="title" placeholder="One of The Books" />
+      <button type="submit">Search</button>
+      <button type="button" id="reset-btn">Reset</button>
+    </form>
 
-    <div class="sidebar">
-  <h2>Finder!</h2>
-  <form>
-    <input type="text" id="author" placeholder="Author name" required />
-    <input type="text" id="title" placeholder="One of The Books" />
-    <button type="submit">Search</button>
-  </form>
-  <ul></ul>
-</div>
+    <!-- Search History -->
+    <h4>🔍 Recent Searches</h4>
+    <ul id="search-history"></ul>
+    <button type="button" id="clear-history-btn">🗑️ Clear History</button>
 
-<!-- NEW sidebar for favorites -->
-<div class="sidebar favorites">
-  <h2>❤️ Favorites</h2>
-  <h4>Authors</h4>
-  <ul id="favorite-authors"></ul>
-  <h4>Books</h4>
-  <ul id="favorite-books"></ul>
-</div>
+    <!-- Sidebar for author names -->
+    <aside class="sidebar">
+      <h4>Authors</h4>
+      <ul></ul>
+    </aside>
 
-<!-- Main results -->
-<div class="authors-block"></div>
-<div class="books-block"></div>
+    <!-- Main content block for authors -->
+    <section class="authors-block"></section>
+
+    <!-- Favorites Section -->
+    <section class="favorites">
+      <h4>⭐ Favorite Authors</h4>
+      <ul id="favorite-authors"></ul>
+      <h4>📚 Favorite Books</h4>
+      <ul id="favorite-books"></ul>
+    </section>
+
     <script src="./scr/index.js"></script>
   </body>
 </html>
