@@ -64,7 +64,14 @@ document.addEventListener("DOMContentLoaded", () =>{
                     const data = await res.json();
 
                     const booksDiv = card.querySelector(".books");
-                    const books= data.entries.slice(0,4)
+                    const books= data.entries.slice(0,4);
+                    const bookDiv = document.createElement("div");
+                    bookDiv.className = "book";
+
+                    bookDiv.innerHTML = `<p>${title}</p> ${
+                        coverId ? `<img src="https://covers.openlibrary.org/b/id/${coverId}-M.jpg" alt="${title} cover" />`  : `<p>No cover available</p>`
+                    }`;
+                    booksDiv.appendChild(bookDiv)
                 }
             }
         }
