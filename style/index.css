@@ -1,11 +1,15 @@
 /* General Page Layout */
 body {
-  background-image: url('https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1950&q=80');
+  background-image: url('https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1950&q=80') ;
   background-size: cover;
+  background-size: 90% 90%;
   background-position: center;
+  padding: 0;
+  border: 0px solid white;
+  margin: 120px;
+  margin-top: 0%;
   background-attachment: fixed;
   font-family: Arial, sans-serif;
-  color: #fff;
 }
 
 /* Container Wrapper */
@@ -15,6 +19,18 @@ body {
   padding: 2rem;
 }
 
+#search-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 0cap 10px rgba(0,0,0,0.1);
+}
+h4{
+  margin-top: 0;
+  color:whitesmoke;
+}
 /* Page Header */
 h1 {
   font-size: 2.5rem;
@@ -46,6 +62,7 @@ form button {
   font-size: 1rem;
   background: #333;
   color: white;
+  border-radius: 4px;
   border: none;
   cursor: pointer;
 }
@@ -56,11 +73,11 @@ form button:hover {
 
 /* Sidebar for Author Names */
 .sidebar {
-  background: #fafafa;
+  background-color: #d2b48c;
   border: 1px solid #ccc;
-  padding: 1rem;
+  padding: 2px ;
   margin-bottom: 1rem;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .sidebar h4 {
@@ -96,8 +113,8 @@ form button:hover {
 }
 
 .author-card {
-  background: #fff;
   border: 1px solid #ddd;
+  background-color: #eee;
   border-radius: 8px;
   padding: 1rem;
   width: 250px;
