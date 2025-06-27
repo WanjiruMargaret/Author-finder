@@ -10,14 +10,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const favoriteAuthorsList = document.querySelector("#favorite-authors");
   const favoriteBooksList = document.querySelector("#favorite-books");
+  const tabs = document.querySelectorAll(".favorites-tab");
 
-  const favoriteAuthors = new Set();
-  const favoriteBooks = new Set();
+  const favoriteAuthors = new Set(JSON.parse(localStorage.getItem("favoriteAuthors")) || []);
+  const favoriteBooks = new Set(JSON.parse(localStorage.getItem("favoriteBooks")) || []);
 
   let searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
   let debounceTimer;
 
-  renderHistory(); // Show saved searches on page load
+  renderFavorites();
+  renderHistory();
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -47,6 +49,25 @@ document.addEventListener("DOMContentLoaded", () => {
     searchHistory = [];
     renderHistory();
   });
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      tabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+      if (tab.dataset.target === "authors") {
+        favoriteAuthorsList.style.display = "block";
+        favoriteBooksList.style.display = "none";
+      } else {
+        favoriteAuthorsList.style.display = "none";
+        favoriteBooksList.style.display = "block";
+      }
+    });
+  });
+
+  function saveFavorites() {
+    localStorage.setItem("favoriteAuthors", JSON.stringify([...favoriteAuthors]));
+    localStorage.setItem("favoriteBooks", JSON.stringify([...favoriteBooks]));
+  }
 
   function addToHistory(query) {
     if (!searchHistory.includes(query)) {
@@ -84,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
         )
       : authors;
 
-    renderAuthors(filtered.slice(0,5)); // Limit to 5 authors for performance
+    renderAuthors(filtered.slice(0, 5));
   }
 
   async function fetchAuthors(query) {
@@ -117,7 +138,6 @@ document.addEventListener("DOMContentLoaded", () => {
         <p><strong>Top Work:</strong> ${author.top_work || "N/A"}</p>
         <p><strong>Work Count:</strong> ${author.work_count}</p>
         <button class="like-author-btn">❤️ Add Author</button>
-
         <div class="books"><em>Loading books...</em></div>
       `;
 
@@ -130,6 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
       card.querySelector(".like-author-btn").addEventListener("click", () => {
         if (!favoriteAuthors.has(author.name)) {
           favoriteAuthors.add(author.name);
+          saveFavorites();
           renderFavorites();
         }
       });
@@ -167,6 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
             bookDiv.querySelector(".like-book-btn").addEventListener("click", () => {
               if (!favoriteBooks.has(title)) {
                 favoriteBooks.add(title);
+                saveFavorites();
                 renderFavorites();
               }
             });
