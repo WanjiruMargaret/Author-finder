@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () =>{
                             renderFavorites();
                         }
                        });
-                       bookDiv.appendChild(bookDiv);
+                       booksDiv.appendChild(bookDiv);
                     });
                 }catch(err){
                     console.error("Error Fetching books:",err);
