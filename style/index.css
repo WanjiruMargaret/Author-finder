@@ -1,0 +1,59 @@
+body{
+  background-color: goldenrod;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 40px;
+}
+h1{
+    color: bisque;
+    font-weight: bolder;
+    text-align: center;
+    font-style: italic;
+}
+.text{
+    text-align: center;
+    font-weight: lighter;
+    color: blanchedalmond;
+}
+
+
+.container{
+  max-width: 1200px;
+  margin: auto;
+}
+
+.sidebar {
+  float: left;
+  width: 20%;
+  padding: 1rem;
+  background: #f0f0f0;
+  border-right: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.sidebar.favorites {
+  float: right;
+  width: 20%;
+  padding: 1rem;
+  background: #fff9f9;
+  border-left: 1px solid #ccc;
+}
+
+.authors-block {
+  margin: 0 22%;
+  padding: 1rem;
+}
+
+.author-card {
+  background: #f9f9f9;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.book img {
+  max-width: 100px;
+  display: block;
+  margin-top: 0.5rem;
+}

@@ -1,18 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Author finder site</title>
-</head>
-<body>
-    <h1>Author finder</h1>
-    <p>Find your favorite authors and their works.</p>
-    <form action="/search" method="get">
-        <label for="author">Author Name:</label>
-        <input type="text" id="author" name="author" required>
-        <button type="submit">Search</button>
-    </form>
-<script src="./scr/index.js"></script>
-</body>
+    <link rel="stylesheet" href="./style/index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Author finder</h1>
+      <p class="text">
+        Find your favorite authors and their works.
+      </p>
+    </div>
+
+    <div class="sidebar">
+  <h2>Finder!</h2>
+  <form>
+    <input type="text" id="author" placeholder="Author name" required />
+    <input type="text" id="title" placeholder="One of The Books" />
+    <button type="submit">Search</button>
+  </form>
+  <ul></ul>
+</div>
+
+<!-- NEW sidebar for favorites -->
+<div class="sidebar favorites">
+  <h2>❤️ Favorites</h2>
+  <h4>Authors</h4>
+  <ul id="favorite-authors"></ul>
+  <h4>Books</h4>
+  <ul id="favorite-books"></ul>
+</div>
+
+<!-- Main results -->
+<div class="authors-block"></div>
+<div class="books-block"></div>
+    <script src="./trial2.js"></script>
+  </body>
 </html>
