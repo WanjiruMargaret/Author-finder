@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
         )
       : authors;
 
-    renderAuthors(filtered);
+    renderAuthors(filtered.slice(0,5)); // Limit to 5 authors for performance
   }
 
   async function fetchAuthors(query) {
@@ -117,6 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <p><strong>Top Work:</strong> ${author.top_work || "N/A"}</p>
         <p><strong>Work Count:</strong> ${author.work_count}</p>
         <button class="like-author-btn">❤️ Add Author</button>
+
         <div class="books"><em>Loading books...</em></div>
       `;
 

@@ -7,15 +7,13 @@
     <link rel="stylesheet" href="./style/index.css" />
   </head>
   <body>
-    <!-- Search Form -->
-    <form>
-      <input type="text" id="author" placeholder="Author name" required />
-      <input type="text" id="title" placeholder="One of The Books" />
-      <button type="submit">Search</button>
-      <button type="button" id="reset-btn">Reset</button>
-    </form>
+  <form>
+  <input type="text" id="author" placeholder="Author name" required />
+  <input type="text" id="title" placeholder="One of the Books" />
+  <button type="submit">Search</button>
+  <button type="button" id="reset-btn">Reset</button>
+</form>
 
-    <!-- Search History -->
     <h4>🔍 Recent Searches</h4>
     <ul id="search-history"></ul>
     <button type="button" id="clear-history-btn">🗑️ Clear History</button>
@@ -30,13 +28,13 @@
     <section class="authors-block"></section>
 
     <!-- Favorites Section -->
-    <section class="favorites">
+    <section class="favorites" id="Sidebars">
       <h4>⭐ Favorite Authors</h4>
       <ul id="favorite-authors"></ul>
       <h4>📚 Favorite Books</h4>
       <ul id="favorite-books"></ul>
     </section>
 
-    <script src="./scr/index.js"></script>
+    <script src="./src/index.js"></script>
   </body>
 </html>
