@@ -60,11 +60,43 @@ document.addEventListener("DOMContentLoaded", () =>{
 
             if (author.key){
                 try {
-                    const res = await fetch (``)
+                    const res = await fetch (`https://openlibrary.org${author.key}/works.json`);
+                    const data = await res.json();
+                    
+                    const booksDiv = card.querySelector(".books");
+                    const books = data.entries.slice(0,4);
+
+                    books.forEach((book) => {
+                        const title = book.title;
+                        const coverId = book.covers?.[0];
+
+                         const bookDiv = document.createElement("div");
+                        bookDiv.className = "book"
+                         bookDiv.innerHTML = `
+                            <p>${title}</p>
+                        ${
+                            coverId
+                             ? `<img src="https://covers.openlibrary.org/b/id/${coverId}-M.jpg" alt="${title} cover" />`
+                             : `<p>No cover available</p>`
+                        }
+                        <button class="like-book-btn">💖 Add Book</button>
+                       `;
+                       bookDiv.querySelector(".like-book-btn").addEventListener("click", () =>{
+                        if (!favoriteBooks.has(title)){
+                            favoriteBooks.add(title);
+                            renderFavorites();
+                        }
+                       });
+                       bookDiv.appendChild(bookDiv);
+                    });
+                }catch(err){
+                    console.error("Error Fetching books:",err);
                 }
             }
         }
     }
-
+    function renderFavorites(){
+        favorite
+    }
 })
 
