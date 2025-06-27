@@ -4,6 +4,12 @@ document.addEventListener("DOMContentLoaded", () =>{
     const titleInput = document.querySelector("#title");
     const authorsBlock = document.querySelector(".authors-block");
     const sidebarList = document.querySelector(".sidebar ul");
+
+    const favoriteAuthorsList = document.querySelector("#favorite-authors");
+    const favoriteBooksList =document.querySelector("#favorite-books");
+
+    const favoriteAuthors = new Set();
+    const favoriteBooks = new Set();
     
     form.addEventListener("submit", async (e) =>{
         e.preventDefault();
@@ -96,7 +102,18 @@ document.addEventListener("DOMContentLoaded", () =>{
         }
     }
     function renderFavorites(){
-        favorite
+        favoriteAuthorsList.innerHTML="";
+        favoriteBooksList.innerHTML = "";
+        favoriteAuthors.forEach(name =>{
+            const li = document.createElement("li");
+            li.textContent=name;
+            favoriteAuthorsList.appendChild(li);
+        });
+        favoriteBooks.forEach(title =>{
+            const li = document.createElement("li");
+            li.textContent = title;
+            favoriteBooksList.appendChild(li);
+        });
     }
 })
 
