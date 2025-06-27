@@ -1,10 +1,11 @@
 /* General Page Layout */
 body {
-  background-color: #fff8dc; /* softer than goldenrod */
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
-  padding: 0;
-  color: #333;
+  background-image: url('https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1950&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: Arial, sans-serif;
+  color: #fff;
 }
 
 /* Container Wrapper */
@@ -180,4 +181,27 @@ form button:hover {
 #clear-history-btn:hover,
 #reset-btn:hover {
   background: #990000;
+}
+.favorites .tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.favorites-tab {
+  padding: 0.4rem 0.8rem;
+  background: #eee;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.favorites-tab.active {
+  background: #ddd;
+  font-weight: bold;
+}
+.favorites-content {
+  display: none;
+}
+.favorites-content.active {
+  display: block;
 }

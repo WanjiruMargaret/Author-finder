@@ -13,10 +13,11 @@
   <button type="submit">Search</button>
   <button type="button" id="reset-btn">Reset</button>
 </form>
-
-    <h4>🔍 Recent Searches</h4>
-    <ul id="search-history"></ul>
-    <button type="button" id="clear-history-btn">🗑️ Clear History</button>
+<section>
+  <h4>🔍 Recent Searches</h4>
+  <ul id="search-history"></ul>
+  <button type="button" id="clear-history-btn">🗑️ Clear History</button>
+</section>
 
     <!-- Sidebar for author names -->
     <aside class="sidebar">
@@ -29,10 +30,12 @@
 
     <!-- Favorites Section -->
     <section class="favorites" id="Sidebars">
-      <h4>⭐ Favorite Authors</h4>
-      <ul id="favorite-authors"></ul>
-      <h4>📚 Favorite Books</h4>
-      <ul id="favorite-books"></ul>
+      <div class="tabs">
+        <button class="favorites-tab" data-target="authors">⭐ Favorite Authors</button>
+        <button class="favorites-tab" data-target="books">📚 Favorite Books</button>
+      </div>
+      <ul  id="favorite-authors"></ul>
+      <ul  id="favorite-books"></ul>
     </section>
 
     <script src="./src/index.js"></script>
